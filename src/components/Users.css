@@ -1,0 +1,13 @@
+.users {
+  display: flex;
+  align-items: center;
+  background-color: #c0c0c0;
+  padding: 20px;
+  margin: 50px;
+}
+
+.avatar_img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

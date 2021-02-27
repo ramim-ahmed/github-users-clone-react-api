@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import GithubUsers from './components/GithubUsers';
+
 
 function App() {
+  const [users, setUsers] = useState([]);
+  useEffect( () => {
+     fetch('https://api.github.com/users')
+     .then( res => res.json())
+     .then( data => setUsers(data))
+  }, [] )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Api Simple Github Users React Clone </h1>
+      <div className="content">
+         {
+           users.map( user => <GithubUsers user = {user} />)
+         }
+      </div>
     </div>
   );
 }
